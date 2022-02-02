@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-chip *ngFor="let item of items | async">
+    <ion-avatar>
+      <img [src]="item.imageUrl">
+    </ion-avatar>
+    <ion-label>
+      {{item.name}} <strong>{{item.amount}}</strong>
+    </ion-label>
+    <ion-label>
+      <button (click)="deleteProduct()">X</button>
+    </ion-label>
+  </ion-chip>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
